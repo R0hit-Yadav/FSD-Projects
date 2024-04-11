@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix.In</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: rgb(69, 64, 64);
+            width: 100vw;
+        }
+
+        .main img {
+            height: 110vh;
+            width: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: brightness(50%);
+            margin-bottom: 0;
+            /* background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg'); */
+            filter: brightness(100px);
+            z-index: 0;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            height: 20vh;
+            width: 100%;
+            overflow-y: hidden;
+            /* outline: 1px solid; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: black; */
+            /* opacity: 0; */
+        }
+
+        .nav_main {
+            /* overflow-y: hidden; */
+            /* overflow-x: auto; */
+            width: 74vw;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            /* outline: 2px solid; */
+            height: fit-content;
+            /* margin-left: -40px; */
+            /* width:350px; */
+            /* background: transparent; */
+
+        }
+
+        .logo>img {
+            /* filter:hue-rotate(48deg); */
+            filter: brightness();
+        }
+
+        .sel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80%;
+            width: 220px;
+        }
+
+        nav select {
+            height: 32px;
+            padding: 2px;
+            background: rgba(0, 0, 0, 0.5);
+            /* opacity: .5; */
+            color: #fff;
+            font-family: sans-serif;
+            /* letter-spacing: 2px; */
+            width: 120px;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            /* font-weight: bold; */
+            text-transform: capitalize;
+        }
+
+        nav button {
+            height: 35px;
+            width: 80px;
+            font-size: 15px;
+            color: white;
+            font-family: sans-serif;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            outline: 1px solid black;
+            /* border: 1px solid black; */
+            background-color: red;
+        }
+
+        .container {
+            height: 55vh;
+            width: 70%;
+            /* outline: 3px solid black; */
+            /* margin: auto; */
+            position: absolute;
+            right: 50;
+            top: 50;
+            transform: translate(20%, -210%);
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 280px;
+            scale: 1.04;
+        }
+
+        .container>h1 {
+            font-family: 'poppins';
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'poppins';
+            text-align: center;
+            margin: 0 auto;
+            font-size: 25px;
+            font-weight: 250;
+            color: #fff;
+        }
+
+        h3 {
+            font-family: 'poppins';
+            text-align: center;
+            margin: 0 auto;
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: -.5px;
+            color: #fff;
+        }
+
+        .inp {
+            margin: 0 auto;
+            width: 39vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .container input {
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 60px;
+            width: 330px;
+            outline: none;
+            border: 1px solid #fff;
+            color: #fff;
+            padding-left: 5px;
+            border-radius: 6px;
+        }
+
+        .container input::placeholder {
+            color: #fff;
+            font-size: 15px;
+            padding-left: 10px;
+        }
+
+        .container button {
+            background-color: red;
+            outline: none;
+            border: 1px solid black;
+            color: #fff;
+            font-family: 'poppins';
+            font-weight: 500;
+            padding: 0 8px;
+            font-size: 20px;
+            border-radius: 5px;
+            height: 60px;
+            width: 160px;
+        }
+
+        .sec_page {
+            position: absolute;
+            height: 70vh;
+            background-color: #000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100vw;
+            /* flex-wrap: wrap; */
+            overflow-y: hidden;
+        }
+
+        .content1 {
+            min-height: 40vh;
+            width: 45vw;
+            /* background-color: blue; */
+            font-family: 'poppins';
+            color: #fff;
+            font-size: 25px;
+            transform: scale(0.8);
+        }
+
+        .tv img {
+            z-index: 2;
+            display: block;
+            overflow: hidden;
+        }
+
+        .tv video {
+            /* z-index: -0.5; */
+            position: absolute;
+            height: 262px;
+            width: 500px;
+            bottom: 86px;
+            right: 0;
+            /* transform: translateY(100px); */
+            transform: translateX(-89px);
+        }
+
+        .th-page {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            top: 0;
+            left: 0;
+            height: 70vh;
+            width: 100vw;
+            /* outline: 1px solid #fff; */
+            background-color: #000;
+            transform: translateY(181.5vh);
+        }
+
+        .im {
+            font-family: 'poppins';
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            /* align-content: center; */
+            /* justify-content: center; */
+        }
+
+        .im img {
+            height: 45vh;
+            margin-bottom: -60px;
+        }
+
+        .im>.box {
+            height: 100px;
+            overflow-y: hidden;
+            margin-top: -30px;
+            z-index: 2;
+            display: flex;
+            /* flex-direction: row; */
+            align-items: center;
+            width: 280px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1.5px solid #7b7878;
+            border-radius: 8px;
+        }
+
+        .box img {
+            height: 80px;
+            margin: auto 6px;
+        }
+
+        .box p {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .box .gif {
+            height: 90px
+        }
+
+        .box span {
+            color: blue;
+        }
+
+        .pp {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            height: 45vh;
+            width: 40vw;
+            font-family: 'poppins';
+            color: #fff;
+            /* display: flex; */
+        }
+
+        .pp h1 {
+            font-size: 44px;
+
+        }
+
+        .pp p {
+            margin-bottom: 0;
+            font-size: 23px;
+        }
+
+        .fr_page {
+            position: absolute;
+            height: 70vh;
+            width: 100vw;
+            /* outline: 2px solid #fff; */
+            transform: translateY(141.5vh);
+            flex-wrap: wrap;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .fr_page .txt {
+            height: 30vh;
+            width: 43vw;
+            /* border: 1px solid #fff; */
+            color: #fff;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            font-family: 'poppins';
+        }
+
+        .txt h1 {
+            font-size: 46px;
+            transform: scaleX(1.1);
+            transform-origin: 0 0;
+        }
+
+        .txt p {
+            font-size: 24px;
+        }
+
+        .fr_page .img {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fr_page .img img {
+            height: 348px;
+            z-index: 2;
+        }
+
+        .fr_page .img video {
+            height: 160px;
+            position: absolute;
+            right: 0;
+            bottom: 190px;
+            transform: translateX(-186px);
+        }
+
+        .fif_page {
+            position: absolute;
+            height: 70vh;
+            width: 100vw;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            transform: translateY(212.5vh);
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            /* outline: 2px solid #fff; */
+        }
+
+        .fif_page .img img {
+            height: 54vh;
+        }
+
+        .fif_page .txt {
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            width: 70vh;
+            font-family: 'poppins';
+        }
+
+        .fif_page .txt h1 {
+            font-size: 40px;
+        }
+
+        .fif_page .txt p {
+            font-size: 18px;
+        }
+
+        .six_page {
+            height: 140vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            flex-direction: column;
+            font-family: 'poppins';
+            /* outline: 2px solid #fff; */
+            transform: translateY(284vh);
+            background-color: #000;
+        }
+
+        .six_page .con {
+            display: flex;
+            flex-direction: column;
+            width: 70vw;
+            height: 90vh;
+            /* outline: 1px solid #fff; */
+            margin-top: 10px;
+        }
+
+        .six_page>h1 {
+            color: #fff;
+            font-family: 'poppins';
+            font-size: 43px;
+            font-weight: 800;
+            /* margin-top: -0px; */
+            /* text-align: center; */
+        }
+
+        .six_page .con .box {
+            display: flex;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 6px 0;
+            height: 80px;
+            background-color: #2b2929;
+            cursor: pointer;
+        }
+
+        .six_page .con .box:hover{
+            background-color: #403e3e;
+        }
+        .six_page .con .box p {
+            font-size: 26px;
+            font-weight: 350;
+            margin-left: 14px;
+        }
+
+        .six_page .con .box .hh h1 {
+            /* height: 72px; */
+            width: 80px;
+            margin-right: -15px;
+            /* scale: 1.02; */
+            color: #fff;
+            font-weight: lighter;
+            cursor: pointer;
+        }
+
+        .six_page .p_six {
+            color: #fff;
+            margin-top: 45px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .six_page .inp {
+            margin: 0 auto;
+            width: 43vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .six_page .inp input {
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 60px;
+            width: 350px;
+            outline: none;
+            border: 1.5px solid #fff;
+            color: #fff;
+            padding-left: 5px;
+            border-radius: 6px;
+        }
+
+        .six_page .inp input::placeholder {
+            color: #fff;
+            font-size: 15px;
+            padding-left: 10px;
+        }
+
+        .six_page .inp button {
+            background-color: red;
+            border: none;
+            outline: 1px solid black;
+            color: #fff;
+            font-family: 'poppins';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0 8px;
+            font-size: 20px;
+            border-radius: 5px;
+            height: 60px;
+            width: 160px;
+        }
+
+        .sev_page {
+            height: 54vh;
+            transform: translateY(425.5vh);
+            background-color: #000;
+            width: 100vw;
+            color: #fff;
+            font-family: 'poppins';
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* outline: 1.5px solid white; */
+        }
+
+        .sev_page .main_box {
+            height: 75%;
+            width: 80vw;
+            /* outline: 1px solid #fff; */
+            display: flex;
+            align-items: center;
+        }
+
+        .sev_page .main_box .mini_box {
+            width: 25%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content:flex-start;
+            align-items:start;
+            /* outline: 1px solid #fff; */
+        }
+
+        .sev_page .main_box .mini_box select {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            height: 35px;
+            padding: 0 10px;
+            width: 9vw;
+            font-weight: 600;
+            border-radius: 6px;
+            margin: 10px 15px;
+            
+        }
+
+        .sev_page h4 {
+            margin-top: 20px;
+            margin-bottom: 6px;
+            margin-left: -755px;
+            font-weight: lighter;
+            cursor: pointer;
+        }
+        .sev_page span{
+            text-decoration: underline;
+        }
+
+        .sev_page .main_box .mini_box p {
+            text-decoration: underline;
+            margin-left: 20px;
+            margin:6px 8px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .sev_page .main_box .mini_box .N_I{
+            text-decoration: none;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="main">
+        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+            alt="">
+    </div>
+    <div class="fst_two">
+        <nav>
+            <div class="nav_main">
+                <div class="logo">
+                    <img height="150px" src="Netflix.png" alt="Netflix_Logo">
+                </div>
+                <div class="sel">
+                    <select>
+                        <option value="">English</option>
+                        <option value="">Hindi</option>
+                    </select>
+                    <button>Sign in</button>
+
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <h1>The biggest Indian hits. Ready to watch here from ₹149.</h1>
+            <br>
+            <h2>Join today. Cancel anytime.</h2>
+            <h3>Ready to watch? Enter your email to create or restart your membership.
+            </h3>
+            <div class="inp">
+                <input type="text" id="" placeholder="Email address">
+                <button>Get Started ></button>
+            </div>
+        </div>
+
+        <div class="sec_page">
+            <div class="content1">
+                <h1>Enjoy on your TV</h1><br>
+                <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+            </div>
+            <div class="tv">
+                <img src="tv.png" alt="tv">
+                <video src="video-tv-in-0819.m4v" loop muted autoplay></video>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="th-page">
+        <div class="im">
+            <img src="mobile-0819.jpg" alt="">
+            <div class="box">
+                <img src="boxshot.png" alt="">
+                <div class="text">
+                    <p>Stranger<br> Things</p>
+                    <span>Downloading...</span>
+                </div>
+                <img src="download-icon.gif" alt="" class="gif">
+            </div>
+
+        </div>
+        <div class="pp">
+            <h1>Download your shows to watch offline</h1>
+            <p>Save your favourites easily and always have something to watch.</p>
+        </div>
+    </div>
+
+    <div class="fr_page">
+        <div class="txt">
+            <h1>Watch everywhere</h1>
+            <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+        </div>
+        <div class="img">
+            <img src="device-pile-in.png" alt="">
+            <video src="video-devices-in.m4v" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="fif_page">
+        <div class="img">
+            <img src="kids.png" alt="">
+        </div>
+        <div class="txt">
+            <h1>Create profiles for kids</h1>
+            <p>Send children on adventures with their favourite characters in a space made just for them—free with your
+                membership.</p>
+        </div>
+    </div>
+
+    <div class="six_page">
+        <h1>Frequently Asked Questions</h1>
+        <div class="con">
+            <div class="box">
+                <p>What is Netflix?</p>
+                <div class="hh">
+                    <h1>+</h1>
+                </div>
+            </div>
+            <div class="box">
+                <p>What is Netflix?</p>
+                <div class="hh">
+                    <h1>+</h1>
+                </div>
+            </div>
+            <div class="box">
+                <p>Where can I watch?</p>
+                <div class="hh">
+                    <h1>+</h1>
+                </div>
+            </div>
+            <div class="box">
+                <p>How do I cancel?</p>
+                <div class="hh">
+                    <h1>+</h1>
+                </div>
+            </div>
+            <div class="box">
+                <p>What can I watch on Netflix?</p>
+                <div class="hh">
+                    <h1>+</h1>
+                </div>
+            </div>
+            <div class="box">
+                <p>Is Netflix good for kids?</p>
+                <div class="hh">
+                    <h1>+</h1>
+                </div>
+            </div>
+        </div>
+        <p class="p_six">Ready to watch? Enter your email to create or restart your membership.</p>
+        <div class="inp">
+            <input type="text" id="" placeholder="Email address">
+            <button>Get Started ></button>
+        </div>
+    </div>
+    <div class="sev_page">
+        <h4>Questions? Call <span>000-800-919-1694</span></h4>
+        <div class="main_box">
+            <div class="mini_box">
+                <p>FAQ</p>
+                <p>Investor Relations</p>
+                <p>Privacy</p>
+                <p>Speed Test</p>
+                <select>
+                    <option value="">English</option>
+                    <option value="">Hindi</option>
+                </select>
+                <p class="N_I">Netflix India</p>
+            </div>
+            <div class="mini_box">
+                <p>Help Centre</p>
+                <p>Jobs</p>
+                <p>Cookie Preferences</p>
+                <p>Legal Notices</p>
+            </div>
+            <div class="mini_box">
+                <p>Account</p>
+                <p>Ways to Watch</p>
+                <p>Corporate Information</p>
+                <p>Only on Netflix</p>
+            </div>
+            <div class="mini_box">
+                <p>Media Centre</p>
+                <p>Terms of Use</p>
+                <p>Contact Us</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
